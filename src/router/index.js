@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'location',
       component: () => import('../views/location.vue')
     },
+    {
+      path: '/public',
+      name: 'public',
+      component: () => import('../views/public.vue')
+    },
   ]
 })
 

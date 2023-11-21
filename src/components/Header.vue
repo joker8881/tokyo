@@ -22,6 +22,7 @@ export default{
         <!-- 點區域顯示區域內活動，或許使用投影片模式跳轉或其他方式顯示 -->
         <RouterLink to="/location" class="a">地點</RouterLink>
         <!-- 點區域顯示區域內地點，或許使用投影片模式跳轉或其他方式顯示 -->
+        <RouterLink to="/public" class="a">公共設施</RouterLink>
     </div>
 </template>
 
