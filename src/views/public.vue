@@ -1,22 +1,21 @@
 <script>
+import { mapState,mapActions } from 'pinia'
+import data from '../stores/pinia'
 export default {
 
     data() {
         return {
             arr: [],
-            x:[],
         }
     },
-    methods: {
-        test() {
-            fetch("https://api.data.metro.tokyo.lg.jp/v1/PublicFacility?limit=1000")
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-                })
-            }
+    methods:{
+        ...mapActions(counter, ["getPublic"]),
+    },
+    created(){
+            this.getPublic()
+            console.log(this.arr)
         }
-    }
+}
     
 </script>
 
@@ -96,11 +95,16 @@ export default {
   <g stroke-opacity="1" stroke="#000000" stroke-linecap="square" stroke-width="1" font-style="normal" transform="matrix(1,0,0,1,0,0)" font-size="37.5" font-family="MS UI Gothic" fill="none" font-weight="400" stroke-linejoin="bevel"/>
  </g>
 </svg>
-    
-    <button type="button" @click="test()">123</button>
+
+
 </template>
 
 <style scoped lang="scss">
+.div{
+    width: 50px;
+    height: 50px;
+    
+}
 path{
     stroke: #000000;
     fill: transparent;

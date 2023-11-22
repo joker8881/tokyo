@@ -1,13 +1,18 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+import {mapState,mapActions} from 'pinia'
+import counter from '../stores/pinia'
 export default{
     data(){
         return{
-
+            obj:[]
         }
     },
     components:{
         RouterLink,
+    },
+    computed:{
+        ...mapState(counter,["obj1"])
     }
 }
 </script>
