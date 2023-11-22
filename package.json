@@ -8,7 +8,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.23.1",
     "pinia": "^2.1.7",
     "sass": "^1.69.5",
     "scss": "^0.2.4",
