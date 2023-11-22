@@ -27,7 +27,7 @@ const router = createRouter({
     {
       path: '/WenHua',
       name: 'WenHua',
-      component: () => import('../views//WenHua.vue')
+      component: () => import('../views/WenHua.vue')
     },
   ]
 })

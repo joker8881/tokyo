@@ -1,20 +1,30 @@
 <script>
+import { mapState, mapActions } from "pinia";
+import data from "../stores/abc";
 export default {
   data() {
-    //data=function(){}
     return {
       obj: [],
-      obj1: [],
+      // 這個不需要更動應該沒問題
     };
   },
-  methods: {
-    test() {
-      fetch("https://api.data.metro.tokyo.lg.jp/v1/CulturalProperty?limit=1000")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-        });
+  computed:{
+        ...mapState(data, ["objb"])
+        // 這邊記得改成objb
     },
+  methods: {
+    ...mapActions(data, ["getWenhua"]),
+    // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"
+    get() {
+      this.getWenhua();
+      // 這裡記得要改成你用的那筆資料
+      this.obj = this.objb;
+    },
+  },
+  created() {
+    this.get();
+    console.log(this.obj);
+    // 這裡是抓取資料的，不需要更動，log是讓你看有沒有抓到
   },
 };
 </script>
@@ -500,7 +510,7 @@ export default {
     </g>
   </svg>
 
-  <button type="button" @click="test()">123</button>
+  <!-- <button type="button" @click="test()">123</button> -->
 </template>
 
 <style scoped lang="scss">
