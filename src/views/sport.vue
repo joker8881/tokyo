@@ -14,14 +14,18 @@ export default {
                 .then(data => {
                     this.arr = data
                     console.log(data)
+        
+                
                 })
-        }
+    }
     }
 }
 
 </script>
 
 <template>
+    <button type="button" @click="test()">123</button>
+
     <svg height="393.785mm" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="519.091mm"
         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" viewBox="0 0 6131 4651"
         baseProfile="tiny">
@@ -233,8 +237,6 @@ export default {
                 stroke-linejoin="bevel" />
         </g>
     </svg>
-
-
 </template>
 
 <style scoped lang="scss">
