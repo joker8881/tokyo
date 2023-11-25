@@ -1,7 +1,7 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import {mapState,mapActions} from 'pinia'
-import counter from '../stores/pinia'
+import counter from '../stores/abc'
 export default{
     data(){
         return{
