@@ -36,7 +36,6 @@ export default{
 }
 // setTimeout(( () => console.log(this.obj) ), 5000);
 </script>
-
 <template>
     <div class="lock">
         <svg class="fa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6001 6081" version="1.2" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink" height="788.32px" width="1961.91px" baseProfile="tiny">

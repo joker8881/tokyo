@@ -80,7 +80,7 @@ export default{
             this.ck()
             setTimeout(()=>{ this.get() },2000)
         // 這裡是抓取資料的，不需要更動
-    },
+    }
 }
 // setTimeout(( () => console.log(this.obj) ), 5000);
 </script>

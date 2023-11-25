@@ -35,7 +35,9 @@ export default defineStore("data",{
         objw23:[],
         //請在這裡加入新的陣列更應存取，不要使用重複的陣列，例如新資料b就使用陣列 objb
         x:"",
-    }},
+    }
+    },
+
     getters:{
     },
 
@@ -182,7 +184,7 @@ export default defineStore("data",{
 
         },
         getPublic(){
-            fetch("https://api.openweathermap.org/data/2.5/weather?q=Tokyo,jp&appid=59c6fd5a18b14258d6f6736a73fe8460&lang=zh_tw&units=metric")
+            fetch("https://api.data.metro.tokyo.lg.jp/v1/PublicFacility?limit=1000")
             .then(response => response.json())
             .then(data => {
             this.objc =data
@@ -208,7 +210,7 @@ export default defineStore("data",{
             idarr.forEach(item=>{
                 item.addEventListener("click",()=>{
                     // console.dir(item)
-                    console.log(item.id)
+                    // console.log(item.id)
                     this.x = item.id
                 })
             })
