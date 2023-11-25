@@ -35,9 +35,7 @@ export default defineStore("data",{
         objw23:[],
         //請在這裡加入新的陣列更應存取，不要使用重複的陣列，例如新資料b就使用陣列 objb
         x:"",
-    }
-    },
-
+    }},
     getters:{
     },
 
