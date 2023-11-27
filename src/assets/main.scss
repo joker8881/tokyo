@@ -5,11 +5,11 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
 
-@import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
 //去google font，點開文字旁邊的+，還後選擇import
 
 *{
-    font-family: 'Kdam Thmor Pro';
+    font: bold 100% "Microsoft JhengHei",Arial,sans-serif;
     box-sizing: border-box;
     margin: 0;
 }

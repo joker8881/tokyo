@@ -21,7 +21,7 @@ export default{
         //如果要抓多筆就是加上去。
     },
     methods:{
-        ...mapActions(data,["getWeather",'ck']),
+        ...mapActions(data,["getWeather",'ck','setWhite']),
         // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"，ck必須要抓，是滑鼠點擊的方法
         get(){
             this.getWeather()
@@ -37,6 +37,9 @@ export default{
             let d = document.getElementById("weather")
             let e = document.getElementById("wind")
             let f = document.getElementById("imgC")
+            let g = document.getElementById("Tbody")
+            let h = document.getElementById("Tnow")
+            let i = document.getElementById("wet")
 
             console.log(this.final[0])
             //主要資料
@@ -44,27 +47,28 @@ export default{
             //名稱
             console.log(this.final[0].coord.lon)
             //經度
-            console.log("體感溫度 " + this.final[0].main.feels_like +" ℃")
+            console.log("體感溫度 " + Math.ceil(this.final[0].main.feels_like) +" ℃")
+            g.innerText = ("體感溫度 " + Math.ceil(this.final[0].main.feels_like) +" ℃")
             //體感溫度
             console.log("濕度 " + this.final[0].main.humidity +" %")
+            i.innerText = ("濕度 " + this.final[0].main.humidity +" %")
             //濕度
-            console.log("當前溫度 " + this.final[0].main.temp +" ℃")
+            console.log("當前溫度 " + Math.ceil(this.final[0].main.temp) +" ℃")
+            h.innerText=("當前溫度 " + Math.ceil(this.final[0].main.temp) +" ℃")
             //當前溫度
             console.log("最低溫度 " + this.final[0].main.temp_min +" ℃")
-            b.innerText = "最低溫度 " + this.final[0].main.temp_min +" ℃"
+            b.innerText = "最低溫度 " + Math.ceil(this.final[0].main.temp_min) +" ℃"
             //最低溫度
             console.log("最高溫度 " + this.final[0].main.temp_max +" ℃")
-            c.innerText = "最高溫度 " + this.final[0].main.temp_max +" ℃"
+            c.innerText = "最高溫度 " + Math.ceil(this.final[0].main.temp_max) +" ℃"
             //最高溫度
             console.log("天氣狀態 " + this.final[0].weather[0].description)
-            d.innerText = "天氣狀態 " + this.final[0].weather[0].description
+            d.innerText = (this.final[0].weather[0].description)
             console.log("天氣圖示 " + this.final[0].weather[0].icon)
-            //天氣型態
+            f.src=(`https://openweathermap.org/img/wn/${this.final[0].weather[0].icon}@2x.png`)
+            //天氣型態與天氣圖片
             console.log("風速 " + this.final[0].wind.speed +" 公尺每秒")
             e.innerText = "風速 " + this.final[0].wind.speed +" 公尺每秒"
-            //風速
-            f.setAttribute("src", `"https://openweathermap.org/img/wn/${this.final[0].weather[0].icon}@2x.png"`)
-
         },
         areaC(){
             let serchInedx = this.location.indexOf(this.x)+1
@@ -83,6 +87,7 @@ export default{
             this.get()
             this.ck()
             setTimeout(()=>{ this.get() },2000)
+            this.setWhite(2)
         // 這裡是抓取資料的，不需要更動
     }
 }
@@ -152,6 +157,8 @@ export default{
             <!-- <p class="title2">天氣地圖</p> -->
             <div class="line"></div>
             <p class="location" id="location">地點</p>
+            <p class="Tbody" id="Tbody">體感溫度</p>
+            <p class="Tnow" id="Tnow">當前溫度</p>
             <div class="tempbox">
                 <p class="ltemp" id="ltemp">最低氣溫</p>
                 <p class="htemp" id="htemp">最高氣溫</p>
@@ -160,10 +167,10 @@ export default{
                 <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" id="imgC">
                 <p class="weather" id="weather">天氣</p>
             </div>
-            <p class="rain" id="wind">風速</p>
+            <p class="wind" id="wind">風速</p>
+            <p class="wet" id="wet">濕度</p>
         </div>
     </div>
-    <button type="button" @click="this.areaC()">{{ this.final }}</button>
 </template>
 
 <style scoped lang="scss">
@@ -198,17 +205,17 @@ svg{
 
 .displaybox{
         width: 30%;
-        height: 70%;
+        height: 82%;
         // align-self:center;
         // align-items: center;
         text-align: center;
         position: fixed;
         right: 20px;
-        top: 150px;
+        top: 90px;
         background-color: rgba(0, 0, 0, 0.797);
         border-radius: 10px;
         .title{
-            margin: 20px 0 0 0;
+            margin: 0 0 0 0;
             padding: 30px 30x 20x;
             font-size: 2em;
             // color: #ffffff;
@@ -235,7 +242,21 @@ svg{
             padding: 30px 30x 20x;
             font-size: 1.875em;
             color: #ffffff;
-            line-height: 2em;
+            line-height: 1.8em;
+        }
+        .Tnow{
+            margin: 0;
+            padding: 30px 30x 20x;
+            font-size: 1.6em;
+            color: #ffffff;
+            line-height: 1.4em;
+        }
+        .Tbody{
+            margin: 0;
+            padding: 30px 30x 20x;
+            font-size: 1.6em;
+            color: #ffffff;
+            line-height: 1.4em;
         }
         .tempbox{
             display: flex;
@@ -245,7 +266,7 @@ svg{
             .htemp{
                 margin: 0;
                 padding: 30px 30x 20x;
-                font-size: 1.875em;
+                font-size: 1.4em;
                 color: #ffffff;
                 line-height: 2em;
                 text-align: center;
@@ -253,7 +274,7 @@ svg{
             .ltemp{
                 margin: 0;
                 padding: 30px 30x 20x;
-                font-size: 1.875em;
+                font-size: 1.4em;
                 color: #ffffff;
                 line-height: 2em;
                 text-align: center;
@@ -266,10 +287,17 @@ svg{
             color: #ffffff;
             line-height: 2em;
         }
-        .rain{
+        .wind{
             margin: 0;
             padding: 30px 30x 20x;
-            font-size: 1.875em;
+            font-size: 1.4em;
+            color: #ffffff;
+            line-height: 2em;
+        }
+        .wet{
+            margin: 0;
+            padding: 30px 30x 20x;
+            font-size: 1.4em;
             color: #ffffff;
             line-height: 2em;
         }

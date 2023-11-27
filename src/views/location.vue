@@ -1,5 +1,19 @@
 <script>
+import { mapState,mapActions } from 'pinia'
+import data from '../stores/abc'
+export default{
+    data(){
+    },
+    computed:{
 
+    },
+    methods:{
+        ...mapActions(data,["setWhite"]),
+    },
+    mounted(){
+      this.setWhite(4)
+    }
+    }
 </script>
 
 
