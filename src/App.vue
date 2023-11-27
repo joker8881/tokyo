@@ -24,5 +24,6 @@ import Header from './components/Header.vue';
   width: 100vw;
   height: 85vh;
   text-align: center;
+  background-color: bisque;
 }
 </style>

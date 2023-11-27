@@ -211,8 +211,8 @@ svg{
         // align-items: center;
         text-align: center;
         position: fixed;
-        right: 20px;
-        top: 90px;
+        right: 200px;
+        top: 150px;
         background-color: rgba(0, 0, 0, 0.797);
         border-radius: 10px;
         .title{

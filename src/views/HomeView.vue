@@ -217,7 +217,7 @@ svg{
     // align-self: baseline;
     vertical-align: top;
     align-self: flex-start;
-    width: 500px;
+    width: 860px;
     height: 730px;
     // position: fixed;
     // left: -15%;

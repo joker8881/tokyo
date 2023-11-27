@@ -174,7 +174,7 @@ export default {
 
 <template>
   <!-- darkmode按鈕 -->
-  <div :class="{ 'dark-mode': isDarkMode }">
+  <div style="  background-color: bisque;" :class="{ 'dark-mode': isDarkMode }">
     <!-- 顯示點擊區域名稱 -->
     <div class="areaData">
       <div class="areaDataLeft">
@@ -595,12 +595,12 @@ export default {
             <div class="modal-dialog modal-fullscreen-xxl-down modal-lg">
               <div  :class="{ 'dark-mode': isDarkMode }" class="modal-content">
                 <!-- 顯示點擊區域 -->
-                <div class="modal-header">
+                <div class="modal-header dd">
                   <h2><b>{{ this.x }}</b></h2>
                   <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <!-- 下拉式選單 -->
-                <div class="modal-middle">
+                <div class="modal-middle ee">
                   <select v-model="selected" :class="{ 'dark-mode': isDarkMode }" class="select2">
                     <option value="">請選擇</option>
                     <option :value="index" v-for="(item, index) in obj2">
@@ -659,6 +659,18 @@ path {
   .pie-wrap{
     color: #fff;
   }
+  .dd{
+    background-color: #333;
+  }
+  .ee{
+    background-color: #333;
+  }
+}
+.dd{
+  background-color: #c2834b;
+}
+.ee{
+  background-color: bisque;
 }
 
 .areaData {
@@ -674,17 +686,15 @@ path {
     height: 100vh;
     display: flex;
     align-items: start;
-    border: 1px solid black;
 
     svg {
-      width: 1200px;
-      height: 1000px;
+      width: 1000px;
+      height: 891px;
     }
   }
   .areaDataRight {
     width: 40vw;
     height: 100vh;
-    border: 1px solid black;
     .darkmodeButton{
       margin: 0;
     }
@@ -694,7 +704,6 @@ path {
     }
     .selectText{
       text-align: left;
-      font-family: 'Noto Sans JP', sans-serif;
       font-size: 18px;
     }
     
