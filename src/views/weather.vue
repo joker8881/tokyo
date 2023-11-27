@@ -12,6 +12,7 @@ export default{
             //全23區
             //如果要加多筆資料，記得多加新的空陣列讓資料可以放進來。
             c:"",
+            imgC:""
         }
     },
     computed:{
@@ -35,6 +36,7 @@ export default{
             let c = document.getElementById("htemp")
             let d = document.getElementById("weather")
             let e = document.getElementById("wind")
+            let f = document.getElementById("imgC")
 
             console.log(this.final[0])
             //主要資料
@@ -61,6 +63,8 @@ export default{
             console.log("風速 " + this.final[0].wind.speed +" 公尺每秒")
             e.innerText = "風速 " + this.final[0].wind.speed +" 公尺每秒"
             //風速
+            f.setAttribute("src", `"https://openweathermap.org/img/wn/${this.final[0].weather[0].icon}@2x.png"`)
+
         },
         areaC(){
             let serchInedx = this.location.indexOf(this.x)+1
@@ -152,7 +156,10 @@ export default{
                 <p class="ltemp" id="ltemp">最低氣溫</p>
                 <p class="htemp" id="htemp">最高氣溫</p>
             </div>
-            <p class="weather" id="weather">天氣</p>
+            <div class="tempbox">
+                <img src="https://openweathermap.org/img/wn/10d@2x.png" alt="" id="imgC">
+                <p class="weather" id="weather">天氣</p>
+            </div>
             <p class="rain" id="wind">風速</p>
         </div>
     </div>
