@@ -16,7 +16,7 @@ export default {
 
     },
     methods: {
-        ...mapActions(data, ["getSport", 'ck']),
+        ...mapActions(data, ["getSport", 'ck','setWhite']),
         // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"，ck必須要抓，是滑鼠點擊的方法
         get() {
             // 這裡記得要改成你要抓的那筆資料
@@ -55,6 +55,7 @@ export default {
         this.get()
         this.ck()
         setTimeout(() => { this.get() }, 1000)
+        this.setWhite(3)
         // 這裡是抓取資料的，不需要更動
     },
 
@@ -181,7 +182,7 @@ export default {
         </svg>
 
         <div class="right">
-            <h1 id="area">東京23區</h1>
+            <h1 id="area" style="margin-top: 10px;">東京23區</h1>
             <p id="names">體育館名稱</p>
             <p id="adress">體育館地址</p>
             <p id="howtogo">電車交通</p>

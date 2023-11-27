@@ -12,6 +12,7 @@ export default{
             objwh2:[],
             objp:[],//公園
             finalp:[],
+            finals:[],
             //全23區
             //如果要加多筆資料，記得多加新的空陣列讓資料可以放進來。
             c:"",
@@ -22,17 +23,18 @@ export default{
         }
     },
     computed:{
-        ...mapState(data, ["objw1","objw2","objw3","objw4","objw5","objw6","objw7","objw8","objw9","objw10","objw11","objw12","objw13","objw14","objw15","objw16","objw17","objw18","objw19","objw20","objw21","objw22","objw23","x","objb","objc"])
+        ...mapState(data, ["objw1","objw2","objw3","objw4","objw5","objw6","objw7","objw8","objw9","objw10","objw11","objw12","objw13","objw14","objw15","objw16","objw17","objw18","objw19","objw20","objw21","objw22","objw23","x","objb","objc","objs"])
         // 這邊記得改成你要取的資料，b是文化，c是公共，s是體育設施。
         //如果要抓多筆就是加上去。
     },
     methods:{
-        ...mapActions(data,["getWeather",'ck','setWhite','getWenhua','getPublic']),
+        ...mapActions(data,["getWeather",'ck','setWhite','getWenhua','getPublic','getSport']),
         // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"，ck必須要抓，是滑鼠點擊的方法
         get(){
             this.getWeather()
             this.getWenhua()
             this.getPublic()
+            this.getSport()
             this.objwh = this.objb
             this.objp = this.objc[0]
             this.objw1a = this.objw1
@@ -104,6 +106,17 @@ export default{
                 }}},800)
             setTimeout(()=>{ console.log(this.finalp) },1000)
             //===========================================
+            setTimeout(() => {
+                for (let i = 0; i < this.objs.length; i++) {
+                    let a = this.objs[i].location
+                    // console.log(a);
+                    if (a == this.x) {
+                        this.finals.push(this.objs[i])
+                    }
+                }
+            }, 500)
+            // console.log(this.finals)
+            //===========================================
             setTimeout(()=>{ this.choiceN = Math.floor((Math.random()*this.objwh2.length)) },600)
             // setTimeout(()=>{ this.choiceNs = Math.floor((Math.random()*this.objs.length)) },600)
             let e = document.getElementById("img1")
@@ -132,14 +145,15 @@ export default{
             let e2 = document.getElementById("introduceW")
             setTimeout(()=>{ e2.innerText=this.finalp[this.choiceNp].説明[2] },1000)
         },
-        // threeC(){
-        //     let e = document.getElementById("img1")
-        //     setTimeout(()=>{ e.src=(`${this.objwh2[this.choiceN].添付URL1}`) },1000)
-        //     let e1 = document.getElementById("titleW")
-        //     setTimeout(()=>{ e1.innerText=this.objwh2[this.choiceN].文化財名 },1000)
-        //     let e2 = document.getElementById("introduceW")
-        //     setTimeout(()=>{ e2.innerText=this.objwh2[this.choiceN].解説文 },1000)
-        // },
+        threeC(){
+            setTimeout(()=>{ this.choiceNs = Math.floor((Math.random()*this.finals.length)) },600)
+            let e = document.getElementById("img1")
+            setTimeout(()=>{ e.src=(`${this.finals[this.choiceNs].img}`) },1000)
+            let e1 = document.getElementById("titleW")
+            setTimeout(()=>{ e1.innerText=this.finals[this.choiceNs].name },1000)
+            let e2 = document.getElementById("introduceW")
+            setTimeout(()=>{ e2.innerText=this.finals[this.choiceNs].introduce },1000)
+        },
     },
         mounted(){
             this.get()
@@ -220,7 +234,7 @@ export default{
             <div class="card">
                 <img src="..." class="card-img-top img-fluid" style="max-height: 430px; background-size: cover;" alt="..." id="img1">
                 <div class="card-body" style="height: 200px;">
-                    <p class="card-text titleW" id="titleW">文化財名稱</p>
+                    <p class="card-text titleW" id="titleW">名稱</p>
                     <p class="card-text introduceW" id="introduceW" style="height: 80%;overflow: scroll;">介紹</p>
                 </div>
             </div>
