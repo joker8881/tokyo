@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
-export default defineStore("data",{
-//需要輸入兩個參數，1自建資料庫名稱，2資料庫內容
+export default defineStore("data", {
+    //需要輸入兩個參數，1自建資料庫名稱，2資料庫內容
 
 //與.vue中 script 預設匯出概念相同，只是名稱不同data
     state(){
@@ -38,7 +38,7 @@ export default defineStore("data",{
     }
     },
 
-    getters:{
+    getters: {
     },
 
     actions:{
@@ -190,27 +190,35 @@ export default defineStore("data",{
             this.objc =data
             })
         },
-        getWenhua(){
-            fetch("")
-            .then(response => response.json())
-            .then(data => {
-            this.objb =data
-            })
+        getWenhua() {
+            fetch("./bunnka/bunnka.json")
+                .then(response => response.json())
+                .then(data => {
+                    this.objb = data
+                    // console.log(data)
+                })
         },
-        getSport(){
+        // fetch("https://api.data.metro.tokyo.lg.jp/v1/CulturalProperty?limit=1000")
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         this.objb = data
+        //         console.log(data)
+        //     })
+        // },
+        getSport() {
             fetch("")
-            .then(response => response.json())
-            .then(data => {
-            this.objs =data
-            })
+                .then(response => response.json())
+                .then(data => {
+                    this.objs = data
+                })
         },
-        ck(){
+        ck() {
             const idarr = document.querySelectorAll("path[name='area']")
             // console.dir(idarr)
-            idarr.forEach(item=>{
-                item.addEventListener("click",()=>{
+            idarr.forEach(item => {
+                item.addEventListener("click", () => {
                     // console.dir(item)
-                    // console.log(item.id)
+                    console.log(item.id)
                     this.x = item.id
                 })
             })
