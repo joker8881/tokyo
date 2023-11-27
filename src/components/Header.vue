@@ -23,14 +23,14 @@ export default{
         <RouterLink to="/location" class="a">地點</RouterLink>
         <!-- 點區域顯示區域內地點，或許使用投影片模式跳轉或其他方式顯示 -->
         <RouterLink to="/sport" class="a">體育設施</RouterLink>
-         <!-- 點區域顯示區域內地點，或許使用投影片模式跳轉或其他方式顯示 -->
+        <!-- 點區域顯示區域內地點，或許使用投影片模式跳轉或其他方式顯示 -->
     </div>
 </template>
 
 <style scoped lang="scss">
 
 .headerShow{
-    widows: 100%;
+    width: 100vw;
     height: 100%;
     background-color: azure;
 }
