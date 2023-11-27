@@ -22,7 +22,7 @@ import Header from './components/Header.vue';
 
 .content{
   width: 100vw;
-  height: 85vh;
+  height: 918px;
   text-align: center;
   background-color: bisque;
 }

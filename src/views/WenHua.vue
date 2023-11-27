@@ -174,7 +174,7 @@ export default {
 
 <template>
   <!-- darkmode按鈕 -->
-  <div style="  background-color: bisque;" :class="{ 'dark-mode': isDarkMode }">
+  <div :class="{ 'dark-mode': isDarkMode }">
     <!-- 顯示點擊區域名稱 -->
     <div class="areaData">
       <div class="areaDataLeft">
@@ -629,7 +629,7 @@ export default {
 <style scoped lang="scss">
 path {
   stroke: #000000;
-  stroke-width: 8;
+  stroke-width: 12;
   fill: transparent;
   transition: 0.5s;
   cursor: pointer;

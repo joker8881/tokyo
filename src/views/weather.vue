@@ -47,6 +47,9 @@ export default{
             //名稱
             console.log(this.final[0].coord.lon)
             //經度
+
+            setTimeout(()=>{
+
             console.log("體感溫度 " + Math.ceil(this.final[0].main.feels_like) +" ℃")
             g.innerText = ("體感溫度 " + Math.ceil(this.final[0].main.feels_like) +" ℃")
             //體感溫度
@@ -69,6 +72,8 @@ export default{
             //天氣型態與天氣圖片
             console.log("風速 " + this.final[0].wind.speed +" 公尺每秒")
             e.innerText = "風速 " + this.final[0].wind.speed +" 公尺每秒"
+
+        },500)
         },
         areaC(){
             let serchInedx = this.location.indexOf(this.x)+1
@@ -182,7 +187,7 @@ export default{
 
 path{
     stroke: #000000;
-    stroke-width: 8;
+    stroke-width: 12;
     fill: transparent;
     transition: 0.5s;
     cursor: pointer;
@@ -197,8 +202,8 @@ svg{
     // align-self: baseline;
     vertical-align: top;
     align-self: flex-start;
-    width: 750px;
-    height: 730px;
+    width: 940px;
+    height: 900px;
     // position: fixed;
     // left: -15%;
     // top: -70%;
