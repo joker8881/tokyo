@@ -1,4 +1,5 @@
 <script>
+import * as echarts from 'echarts';
 import { mapState, mapActions } from "pinia";
 import data from "../stores/abc";
 export default {
@@ -6,16 +7,41 @@ export default {
     return {
       obj: [], // 這個不需要更動應該沒問題
       obj2: [],
+      obj3: [], //"千代田区"
+      obj4: [], //"中央区"
+      obj5: [], //"港区"
+      obj6: [],
+      obj7: [],
+      obj8: [],
+      obj9: [],
+      obj10: [],
+      obj11: [],
+      obj12: [],
+      obj13: [],
+      obj14: [],
+      obj15: [],
+      obj16: [],
+      obj17: [],
+      obj18: [],
+      obj19: [],
+      obj20: [],
+      obj21: [],
+      obj22: [],
+      obj23: [],
+      obj24: [],
+      obj25: [],
       isDarkMode: false, // 初始化為 false，表示暗色模式未啟用
       c: "",
       selected: "",
       click: 0,
+      imgp:"",
+      chartPie: null,
     };
   },
   computed: {
     ...mapState(data, ["objb", "x"]),
     // 這邊記得改成objb
-  },
+},
   methods: {
     ...mapActions(data, ["getWenhua", "ck","setWhite"]),
     // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"，ck必須要抓，是滑鼠點擊的方法
@@ -30,28 +56,118 @@ export default {
     },
     areaC() {
       this.click = 0;
-      this.obj2 = this.obj.filter((item) => {
-        return item.所在区市町村 == this.x;
-      });
+      this.obj2 = this.obj.filter((item) => {return item.所在区市町村 == this.x;});
+      setTimeout(() => {this.obj2 = this.obj.filter((item) => {return item.所在区市町村 == this.x;});}, 500);
       setTimeout(() => {
-        this.obj2 = this.obj.filter((item) => {
-          return item.所在区市町村 == this.x;
-        });
-      }, 500);
-      console.log(this.obj2);
-    },
+        let areaName=["千代田区", "中央区", "港区", "新宿区", "文京区", "台東区", "墨田区", "江東区", "品川区", "目黒区", "大田区", "世田谷区", "渋谷区", "中野区", "杉並区", "豊島区", "北区", "荒川区", "板橋区", "練馬区", "足立区", "葛飾区", "江戸川区"];
+        this.obj3 = this.obj.filter((item) => {return item.所在区市町村 == areaName[0]});
+        this.obj4 = this.obj.filter((item) => {return item.所在区市町村 == areaName[1]});
+        this.obj5 = this.obj.filter((item) => {return item.所在区市町村 == areaName[2]});
+        this.obj6 = this.obj.filter((item) => {return item.所在区市町村 == areaName[3]});
+        this.obj7 = this.obj.filter((item) => {return item.所在区市町村 == areaName[4]});
+        this.obj8 = this.obj.filter((item) => {return item.所在区市町村 == areaName[5]});
+        this.obj9 = this.obj.filter((item) => {return item.所在区市町村 == areaName[6]});
+        this.obj10 = this.obj.filter((item) => {return item.所在区市町村 == areaName[7]});
+        this.obj11 = this.obj.filter((item) => {return item.所在区市町村 == areaName[8]});
+        this.obj12 = this.obj.filter((item) => {return item.所在区市町村 == areaName[9]});
+        this.obj13 = this.obj.filter((item) => {return item.所在区市町村 == areaName[10]});
+        this.obj14 = this.obj.filter((item) => {return item.所在区市町村 == areaName[11]});
+        this.obj15 = this.obj.filter((item) => {return item.所在区市町村 == areaName[12]});
+        this.obj16 = this.obj.filter((item) => {return item.所在区市町村 == areaName[13]});
+        this.obj17 = this.obj.filter((item) => {return item.所在区市町村 == areaName[14]});
+        this.obj18 = this.obj.filter((item) => {return item.所在区市町村 == areaName[15]});
+        this.obj19 = this.obj.filter((item) => {return item.所在区市町村 == areaName[16]});
+        this.obj20 = this.obj.filter((item) => {return item.所在区市町村 == areaName[17]});
+        this.obj21 = this.obj.filter((item) => {return item.所在区市町村 == areaName[18]});
+        this.obj22 = this.obj.filter((item) => {return item.所在区市町村 == areaName[19]});
+        this.obj23 = this.obj.filter((item) => {return item.所在区市町村 == areaName[20]});
+        this.obj24 = this.obj.filter((item) => {return item.所在区市町村 == areaName[21]});
+        this.obj25 = this.obj.filter((item) => {return item.所在区市町村 == areaName[22]});
+        console.log(this.obj25)}, 600);
+      },
     clickC() {
       this.click = 1;
     },
+    drawPieChart() {
+        let mytextStyle = {
+          color: "#333",                          
+          fontSize: 18,                            
+        };
+        let mylabel = {
+          show: true,                 
+          position: "right",          
+          offset: [30, 40],             
+          formatter: '{b} : {c} ({d}%)',      
+          textStyle: mytextStyle
+        };
+        this.chartPie = echarts.init(document.getElementById('chartPie'),'macarons');
+        this.chartPie.setOption({
+          title: {
+            text: '文化財',
+            subtext: '我睡啦',
+            x: 'center'
+          },
+          tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)",
+          },
+          legend: {
+            data: ['千代田区', '中央区', '港区', '新宿区', '文京区', '台東区', '墨田区', '江東区', '品川区', '目黒区', '大田区', '世田谷区', '渋谷区', '中野区', '杉並区', '豊島区', '北区', '荒川区', '板橋区', '練馬区', '足立区', '葛飾区', '江戸川区'],
+            left:"center",                              
+            top:"bottom",                              
+            orient:"horizontal",                     
+          },
+          series: [
+            {
+              name: '文化財',
+              type: 'pie',
+              radius: ['50%', '70%'],
+              center: ['50%', '50%'],
+              data: [
+                {value: this.obj3.length, name: '千代田区'},
+                {value: this.obj4.length, name: '中央区'},
+                {value: this.obj5.length, name: '港区'},
+                {value: this.obj6.length, name: '新宿区'},
+                {value: this.obj7.length, name: '文京区'},
+                {value: this.obj8.length, name: '台東区'},
+                {value: this.obj9.length, name: '墨田区'},
+                {value: this.obj10.length, name: '江東区'},
+                {value: this.obj11.length, name: '品川区'},
+                {value: this.obj12.length, name: '目黒区'},
+                {value: this.obj13.length, name: '世田谷区'},
+                {value: this.obj14.length, name: '渋谷区'},
+                {value: this.obj15.length, name: '中野区'},
+                {value: this.obj16.length, name: '杉並区'},
+                {value: this.obj17.length, name: '豊島区'},
+                {value: this.obj18.length, name: '北区'},
+                {value: this.obj19.length, name: '荒川区'},
+                {value: this.obj20.length, name: '板橋区'},
+                {value: this.obj21.length, name: '練馬区'},
+                {value: this.obj22.length, name: '足立区'},
+                {value: this.obj23.length, name: '葛飾区'},
+                {value: this.obj24.length, name: '江戸川区'},
+                {value: this.obj25.length, name: '葛飾区'},
+              ],
+              animationEasing: 'cubicInOut',
+              animationDuration: 2600,
+              label: {           
+                emphasis: mylabel
+              }
+            }
+          ]
+        });
+      }
   },
   mounted() {
     this.get();
     this.ck();
     setTimeout(() => {
       this.get();
+      this.$nextTick(() => {this.drawPieChart();});
     }, 2000);
     this.setWhite(5)
     // 這裡是抓取資料的，不需要更動
+
   },
 };
 </script>
@@ -59,71 +175,10 @@ export default {
 <template>
   <!-- darkmode按鈕 -->
   <div :class="{ 'dark-mode': isDarkMode }">
-    <button @click="toggleDarkMode">dm</button><br />
     <!-- 顯示點擊區域名稱 -->
     <div class="areaData">
       <div class="areaDataLeft">
-        <button type="button">{{ this.x }}</button>
-      </div>
-      <div class="areaDataRight">
-        <!-- 跳出視窗 -->
-        <!-- 按鈕 -->
-        <a
-          href="#"
-          type="button"
-          @click="clickC()"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#dataModal"
-          style="text-decoration: none"
-          >詳細資料點我</a
-        >
-        <!-- 跳出視窗內容 -->
-        <div class="modal fade" id="dataModal">
-          <!-- 改大小 -->
-          <div class="modal-dialog modal-fullscreen-xxl-down modal-lg">
-            <div class="modal-content" style="background-color: azure">
-              <div class="modal-header">
-                <h3 style="">{{ this.x }}</h3>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                ></button>
-              </div>
-              <div class="modal-middle">
-                <select v-model="selected" style="text-align: center">
-                  <option value="">請選擇</option>
-                  <option :value="index" v-for="(item, index) in obj2">
-                    {{ item.文化財名 }}
-                  </option>
-                </select>
-                <p v-if="click == 1">
-                  {{ "文化財名：" + this.obj2[selected].文化財名 }}
-                </p>
-                <p v-if="click == 1">
-                  {{ "所在地：" + this.obj2[selected].所在地 }}
-                </p>
-                <p v-if="click == 1">
-                  {{ "指定年月日：" + this.obj2[selected].指定年月日 }}
-                </p>
-                <p v-if="click == 1">
-                  {{ "種別：" + this.obj2[selected].種別 }}
-                </p>
-                <p v-if="click == 1">
-                  {{ "添付URL1：" + this.obj2[selected].添付URL1 }}
-                </p>
-                <p v-if="click == 1">
-                  {{ "解説文：" + this.obj2[selected].解説文 }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <svg
+        <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 6001 6081"
       version="1.2"
@@ -520,8 +575,55 @@ export default {
         fill-rule="evenodd"
         d="M4090.35,3758.4 L4087.19,3760.11 L4075.56,3766.36 L4059.26,3775.19 L4056.44,3776.76 L4022.74,3795.01 L4011.14,3801.32 L4008.85,3802.56 L3983.52,3816.32 L3965.33,3826.17 L3965.54,3826.43 L3961.85,3828.45 L3930.49,3795.91 L3929.38,3794.75 L3928.98,3794.33 L3918.23,3783.09 L3901.38,3765.64 L3894.42,3758.4 L3886.57,3750.23 L3884.38,3748.94 L3854.15,3731.03 L3846.39,3726.25 L3843.4,3724.47 L3842.22,3725.85 L3841.85,3725.99 L3841.16,3725.64 L3832.83,3720.23 L3830.3,3718.55 L3830.68,3718.11 L3790.85,3694.62 L3757.62,3674.78 L3753.46,3672.3 L3718.85,3651.98 L3686.84,3632.88 L3684.8,3631.64 L3676.51,3626.62 L3676.02,3627.01 L3669.28,3631.64 L3668.6,3632.1 L3668.13,3631.64 L3662.6,3626.27 L3666.43,3623.67 L3666.05,3623.37 L3662.98,3625.44 L3662.31,3624.83 L3666.33,3622.12 L3666.98,3622.7 L3667,3622.69 L3667.38,3623.04 L3668.72,3622.11 L3656.78,3614.88 L3656.63,3613.99 L3664.33,3609.84 L3664.89,3610.44 L3674.99,3604.95 L3681.45,3601.45 L3687.93,3597.92 L3694.13,3594.55 L3694.37,3594.42 L3697.87,3592.51 L3701.92,3590.29 L3720.92,3579.9 L3736.2,3571.66 L3744.53,3567.21 L3749.75,3564.39 L3757.62,3560.1 L3779.99,3547.91 L3791.88,3541.5 L3815.08,3528.92 L3824.94,3540.79 L3832.82,3550.57 L3841.45,3561.34 L3843.02,3563.31 L3870.72,3548.34 L3865.18,3541.48 L3854.65,3528.54 L3851.93,3525.21 L3842.74,3513.92 L3842.8,3513.89 L3846.63,3511.79 L3859.42,3504.88 L3868.11,3500.18 L3884.38,3491.36 L3907.45,3478.86 L3923.68,3469.97 L3928.89,3467.16 L3935.89,3463.37 L3958.58,3451.05 L3987.67,3435.18 L4011.14,3422.47 L4050,3401.43 L4065.11,3393.27 L4064.31,3392.16 L4064.23,3391.98 L4064.28,3391.87 L4065.22,3391.11 L4065.8,3390.91 L4065.98,3390.94 L4066.15,3391.08 L4066.86,3392.04 L4066.85,3392.13 L4066.74,3392.39 L4076.11,3406.91 L4086.08,3422.47 L4099.22,3442.78 L4110.47,3460.37 L4122.31,3478.59 L4134.61,3497.81 L4137.9,3502.91 L4139.18,3504.88 L4158.56,3534.85 L4162.79,3541.44 L4168.39,3550.12 L4169.78,3549.7 L4173.73,3555.88 L4182.89,3569.97 L4190.66,3582.24 L4195.78,3590.21 L4198.28,3594.11 L4212.62,3616.15 L4222.58,3631.64 L4223.83,3633.59 L4228.23,3640.5 L4241.42,3661.7 L4246.31,3668.95 L4246.86,3668.64 L4247.33,3668.62 L4247.83,3668.9 L4248.04,3669.29 L4248.21,3669.67 L4248.15,3670.05 L4247.87,3670.45 L4247.49,3670.66 L4246.96,3670.78 L4246.2,3671.05 L4247.58,3673.23 L4247.43,3673.3 L4247.34,3673.18 L4232.42,3681.34 L4227.99,3683.76 L4189.61,3704.52 L4169.72,3715.32 L4137.9,3732.61 L4100.51,3752.9 L4090.35,3758.4"
       />
-    </svg>
+        </svg>
+      </div>
+
+      <div class="areaDataRight">
+        <div class="darkmodeButton">
+          <button @click="toggleDarkMode" class="" :class="{ 'dark-mode': isDarkMode }" style="margin-top:10px ;">天黑請閉眼</button>
+        </div>
+        <div class="nameButton">
+          <button :class="{ 'dark-mode': isDarkMode }" type="button" style="width:300px; height:38px ; border-radius: 0.375rem; font-size: 24px;">目標地區：{{ this.x }}</button>
+        </div>
+        <!-- 跳出視窗 -->
+        <div class="dataArea">
+          <!-- 按鈕 -->
+          <a href="#" :class="{ 'dark-mode': isDarkMode }" type="button" @click="clickC()" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#dataModal" style="text-decoration: none;">詳細資料點我觀看</a>
+          <!-- 跳出視窗內容 -->
+          <div class="modal fade" id="dataModal">
+            <!-- 改大小 -->
+            <div class="modal-dialog modal-fullscreen-xxl-down modal-lg">
+              <div  :class="{ 'dark-mode': isDarkMode }" class="modal-content">
+                <!-- 顯示點擊區域 -->
+                <div class="modal-header">
+                  <h2><b>{{ this.x }}</b></h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <!-- 下拉式選單 -->
+                <div class="modal-middle">
+                  <select v-model="selected" :class="{ 'dark-mode': isDarkMode }" class="select2">
+                    <option value="">請選擇</option>
+                    <option :value="index" v-for="(item, index) in obj2">
+                      {{ item.文化財名 }}
+                    </option>
+                  </select>
+                  <p class="selectText" v-if="click == 1"><b>文化財名</b>：{{this.obj2[this.selected].文化財名 }}</p>
+                  <p class="selectText" v-if="click == 1"><b>所在地</b>：{{this.obj2[this.selected].所在地 }}</p>
+                  <p class="selectText" v-if="click == 1"><b>アクセス</b>：{{this.obj2[this.selected].アクセス }}</p>
+                  <p class="selectText" v-if="click == 1"><b>指定年月日</b>：{{this.obj2[this.selected].指定年月日 }}</p>
+                  <p class="selectText" v-if="click == 1"><b>種別</b>：{{this.obj2[this.selected].種別 }}</p>
+                  <p class="selectText" v-if="click == 1"><b>解説文</b>：{{this.obj2[this.selected].解説文 }}</p>
+                  <img v-if="click == 1" src="" alt="" id="img">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="chartPie" class="pie-wrap"></div>
+      </div>
+    </div>
   </div>
+  
 </template>
 
 <style scoped lang="scss">
@@ -537,6 +639,10 @@ path {
     transform: translate(-5px, -5px);
   }
 }
+.pie-wrap{
+        width: 100%;
+        height: 750px;
+    }
 /* 暗色模式的樣式 */
 .dark-mode {
   background-color: #333; /* 設定背景色為深色 */
@@ -544,14 +650,54 @@ path {
   path {
     stroke: white;
   }
+  button{
+    border-color: #fff;
+  }
+  a{
+    border-color: #fff;
+  }
+  .pie-wrap{
+    color: #fff;
+  }
 }
+
 .areaData {
   width: 100vw;
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  
+  .modal-middle{
+    flex-direction: column;
+  }
   .areaDataLeft {
-    margin-right: 2px;
+    width: 60vw;
+    height: 100vh;
+    display: flex;
+    align-items: start;
+    border: 1px solid black;
+
+    svg {
+      width: 1200px;
+      height: 1000px;
+    }
+  }
+  .areaDataRight {
+    width: 40vw;
+    height: 100vh;
+    border: 1px solid black;
+    .darkmodeButton{
+      margin: 0;
+    }
+    .nameButton{
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .selectText{
+      text-align: left;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 18px;
+    }
+    
   }
 }
 </style>
