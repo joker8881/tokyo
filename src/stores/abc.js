@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-
 export default defineStore("data", {
     //需要輸入兩個參數，1自建資料庫名稱，2資料庫內容
 
@@ -198,13 +197,6 @@ export default defineStore("data", {
                     // console.log(data)
                 })
         },
-        // fetch("https://api.data.metro.tokyo.lg.jp/v1/CulturalProperty?limit=1000")
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         this.objb = data
-        //         console.log(data)
-        //     })
-        // },
         getSport() {
             fetch("")
                 .then(response => response.json())

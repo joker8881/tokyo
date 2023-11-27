@@ -52,7 +52,7 @@ export default{
             b.innerText = "最低溫度 " + this.final[0].main.temp_min +" ℃"
             //最低溫度
             console.log("最高溫度 " + this.final[0].main.temp_max +" ℃")
-            c.innerText = "最低溫度 " + this.final[0].main.temp_min +" ℃"
+            c.innerText = "最高溫度 " + this.final[0].main.temp_max +" ℃"
             //最高溫度
             console.log("天氣狀態 " + this.final[0].weather[0].description)
             d.innerText = "天氣狀態 " + this.final[0].weather[0].description
@@ -191,7 +191,7 @@ svg{
 
 .displaybox{
         width: 30%;
-        height: 45%;
+        height: 70%;
         // align-self:center;
         // align-items: center;
         text-align: center;
