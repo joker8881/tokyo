@@ -43,7 +43,7 @@ export default {
     // 這邊記得改成objb
 },
   methods: {
-    ...mapActions(data, ["getWenhua", "ck"]),
+    ...mapActions(data, ["getWenhua", "ck","setWhite"]),
     // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"，ck必須要抓，是滑鼠點擊的方法
     get() {
       // 這裡記得要改成你要抓的那筆資料
@@ -165,6 +165,7 @@ export default {
       this.get();
       this.$nextTick(() => {this.drawPieChart();});
     }, 2000);
+    this.setWhite(5)
     // 這裡是抓取資料的，不需要更動
 
   },

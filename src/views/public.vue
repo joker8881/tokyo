@@ -42,6 +42,7 @@ export default {
             this.get()
             this.ck()
             setTimeout(()=>{ this.get() },2000)
+            this.setWhite(6)
         // 這裡是抓取資料的，不需要更動
     }
 }
