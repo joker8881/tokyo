@@ -8,6 +8,7 @@ export default {
             final: [],
             // 這個不需要更動應該沒問題
             value: 0,
+
         }
     },
     computed: {
@@ -20,19 +21,17 @@ export default {
         get() {
             // 這裡記得要改成你要抓的那筆資料
             this.getSport()
-            // console.log(this.objs)
-            console.log(this.objs[0])
-            let ddd = document.querySelectorAll("path[name='area']")
-            ddd.forEach(item => {
-                item.addEventListener("click", () => {
-                    this.test()
-                    console.log("xxx")
-                })
-            })
+            console.log(this.objs)
+            // console.log(this.objs[0])
         },
         test() {
-            this.value = 1,
-                console.log(this.x)
+            let adress = document.getElementById("adress")
+            let area = document.getElementById("area")
+            let names = document.getElementById("names")
+            let introduce = document.getElementById("introduce")
+            let howtogo = document.getElementById("howtogo")
+            let img = document.getElementById("img")
+            this.final = []
             setTimeout(() => {
                 for (let i = 0; i < this.objs.length; i++) {
                     let a = this.objs[i].location
@@ -42,16 +41,19 @@ export default {
                     }
                 }
             }, 500)
-            setTimeout(() => {
-                console.log(this.final)
-                console.log(this.x)
-            }, 800)
+            setTimeout(() => { console.log(this.final) }, 800)
+            setTimeout(() => { adress.innerText = "體育館地址: " + this.final[0].locationarea }, 800)
+            setTimeout(() => { names.innerText = "體育館名稱: " + this.final[0].name }, 800)
+            setTimeout(() => { howtogo.innerText = "電車交通: " + this.final[0].howtogo }, 800)
+            setTimeout(() => { introduce.innerText = "介紹: " + this.final[0].introduce }, 800)
+            setTimeout(() => { img.innerHTML = '<img src="' + this.final[0].img + '" >' }, 800)
+            setTimeout(() => {let insertedImage = img.querySelector('img');insertedImage.width = 500; insertedImage.height = 300; insertedImage.style.textAlign = 'center';insertedImage.style.verticalAlign = 'middle'; }, 900)
+            setTimeout(() => { area.innerText = this.x }, 900)
         },
     },
     mounted() {
         this.get()
         this.ck()
-        this.test()
         setTimeout(() => { this.get() }, 1000)
         // 這裡是抓取資料的，不需要更動
     },
@@ -179,15 +181,27 @@ export default {
         </svg>
 
         <div class="right">
-            <h1>{{ this.x }}</h1>
-            <p v-if="value == 1">地址:{{ this.final[0] }}</p>
-
+            <h1 id="area">東京23區</h1>
+            <p id="names">體育館名稱</p>
+            <p id="adress">體育館地址</p>
+            <p id="howtogo">電車交通</p>
+            <p id="introduce">介紹</p>
+            <div class="picture">
+                <div id="img" class="imgs">
+                </div>
+            </div>
         </div>
 
     </div>
 </template>
 
 <style scoped lang="scss">
+
+img {
+    width: 500px;
+    height: 300px;
+}
+
 path {
     stroke: #000000;
     stroke-width: 16;
@@ -202,19 +216,73 @@ path {
 }
 
 svg {
-    vertical-align: top;
-    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
     width: 50vw;
 }
 
 .box {
     width: 100vw;
-    height: 100vh;
+    height: 120vh;
     display: flex;
+    background-color: bisque;
 
     .right {
         width: 50vw;
-        height: 80%;
-        border: 1px solid black;
+        height: 100%;
+        .picture {
+            width: 100%;
+            height: 40%;
+
+            .imgs {
+                width: 100%;
+                height: 50%;
+            }
+        }
+
+        h1 {
+            width: 100%;
+            display: block;
+            justify-content: space-around;
+            color: black;
+
+            &:active {
+                font-size: 30pt;
+                transition: 0.8s;
+            }
+
+            &:hover {
+                font-size: 80pt;
+                background: linear-gradient(to top, #3a1c71, #d76d77, #ffaf7b);
+                background: -webkit-linear-gradient(to top, #3a1c71, #d76d77, #ffaf7b);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                transition: 0.5s;
+
+            }
+        }
+
+        p {
+            font-size: 16pt;
+            color: black;
+
+            &:active {
+                color: white;
+                transition: 1s;
+            }
+
+            &:hover {
+                background: linear-gradient(to top, #40e0d0, #ff8c00, #ff0080);
+                background: -webkit-linear-gradient(to top, #40e0d0, #ff8c00, #ff0080);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                transition: 0.5s;
+            }
+        }
     }
-}</style>
+}
+</style>
