@@ -16,7 +16,7 @@ export default {
         // 這邊記得改成objb
     },
     methods:{
-        ...mapActions(data,["getPublic",'ck']),
+        ...mapActions(data,["getPublic",'ck','setWhite']),
         // 這裡改成你要抓的那筆資料方法，比如說public就是"getpublic"，ck必須要抓，是滑鼠點擊的方法
         get(){
             // 這裡記得要改成你要抓的那筆資料

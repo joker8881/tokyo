@@ -177,6 +177,7 @@ export default{
 .lock{
     display: flex;
     align-items: start;
+    background-color: bisque;
 }
 
 path{
@@ -187,7 +188,7 @@ path{
     cursor: pointer;
     &:hover{
         // fill: var(--color-gold);
-        fill: rgb(247, 228, 125);
+        fill: rgb(238, 142, 33);
         transform: translate(-5px, -5px);
     }
 }

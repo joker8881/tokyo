@@ -19,8 +19,6 @@ export default {
   <div class="headerShow">
     <p class="b"><RouterLink to="/" class="a" :class="{'css': this.white === 1}">首頁</RouterLink></p>
     <p class="b"><RouterLink to="/weather" class="a" :class="{'css': this.white === 2}">天氣</RouterLink></p>
-    <p class="b"><RouterLink to="/event" class="a" :class="{'css': this.white === 3}">活動</RouterLink></p>
-    <p class="b"><RouterLink to="/location" class="a" :class="{'css': this.white === 4}">地點</RouterLink></p>
     <p class="b"><RouterLink to="/WenHua" class="a" :class="{'css': this.white === 5}">文化</RouterLink></p>
     <p class="b"><RouterLink to="/public" class="a" :class="{'css': this.white === 6}">公共設施</RouterLink></p>
   </div>
@@ -31,6 +29,7 @@ export default {
   widows: 100%;
   height: 100%;
   background-color: #c2834b;
+  border-radius: 2px;
   display: flex;
   justify-content: space-around;
   .a {
