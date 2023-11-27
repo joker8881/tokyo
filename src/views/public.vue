@@ -121,7 +121,7 @@ var img=document.querySelector("img")
   <div>
     <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage">
   </div>
-    <div :style="{ backgroundColor: bgColor }">
+    <div style="height: 100%;" :style="{ backgroundColor: bgColor }">
     <button @click="changeColor">Change Color</button>
   
     <div class="box">
