@@ -96,15 +96,14 @@ export default {
     },
     drawPieChart() {
       let mytextStyle = {
-        color: "#333",
-        fontSize: 24,
+        fontSize: 18,
       };
       let mylabel = {
         show: true, 
         position: "right", 
         offset: [30, 40], 
         formatter: "{b} : {c} ({d}%)", 
-        textStyle: mytextStyle,
+        textStyle:mytextStyle,
       };
       this.chartPie = echarts.init( document.getElementById("chartPie"), "macarons"
       );
@@ -114,21 +113,22 @@ export default {
           subtext: "我睡啦",
           x: "center",
         },
-        tooltip: {
+        tooltip: { //提示框
           trigger: "item",
           formatter: "{a} <br/>{b} : {c} ({d}%)",
         },
-        legend: {
+        legend: { //圖例
           data: ["千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区","品川区","目黒区","大田区","世田谷区","渋谷区","中野区","杉並区","豊島区","北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区",],
-          left: "center",
-          top: "bottom",
-          orient: "horizontal",
+          left:"center",                              
+          top:"bottom",                              
+          orient:"horizontal",
+          color: "#fff;"
         },
         series: [
           {
             name: "文化財",
             type: "pie",
-            radius: ["50%", "70%"],
+            radius: ["40%", "70%"],
             center: ["50%", "50%"],
             data: [
               { value: this.obj3.length, name: "千代田区" },
@@ -705,7 +705,7 @@ document.addEventListener("mousemove", function (e) {
             </div>
           </div>
         </div>
-        <div id="chartPie" class="pie-wrap"></div>
+        <div :class="{ 'dark-mode': isDarkMode }" id="chartPie" class="pie-wrap"></div>
       </div>
     </div>
   </div>
@@ -726,8 +726,9 @@ path {
 }
 .pie-wrap {
   width: 100%;
-  height: 450px;
+  height: 500px;
   margin-top: 50px
+
 }
 /* 暗色模式的樣式 */
 .dark-mode {
@@ -743,6 +744,7 @@ path {
     border-color: #fff;
   }
   .pie-wrap {
+    background-color: #333;
     color: #fff;
   }
   .dd {
