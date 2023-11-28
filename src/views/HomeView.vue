@@ -20,6 +20,7 @@ export default{
             choiceN:"",
             choiceNp:"",
             choiceNs:"",
+            any:0,
         }
     },
     computed:{
@@ -39,7 +40,7 @@ export default{
             this.objp = this.objc[0]
             this.objw1a = this.objw1
             this.objw1a = [this.objw1,this.objw2,this.objw3,this.objw4,this.objw5,this.objw6,this.objw7,this.objw8,this.objw9,this.objw10,this.objw11,this.objw12,this.objw13,this.objw14,this.objw15,this.objw16,this.objw17,this.objw18,this.objw19,this.objw20,this.objw21,this.objw22,this.objw23]
-            console.log(this.objw1a)
+            // console.log(this.objw1a)
             //如果有要多抓資料這邊都要加新的抓取方法跟陣列替換。
         },
         weatherInfo(){
@@ -50,7 +51,7 @@ export default{
             let f = document.getElementById("imgC")
             let h = document.getElementById("Tnow")
 
-            console.log(this.final[0])
+            // console.log(this.final[0])
             //主要資料
             a.innerText = this.x
             //名稱
@@ -97,7 +98,7 @@ export default{
             //===========================================
             let k = this.x.split("")
             setTimeout(()=>{ k = this.x.split("") },500)
-            setTimeout(()=>{ console.log(k) },500)
+            // setTimeout(()=>{ console.log(k) },500)
             this.finalp = []
             setTimeout(()=>{for(let i = 0;i<this.objp.length;i++){
                 let a =this.objp[i].住所.表記.split("")
@@ -117,14 +118,33 @@ export default{
             }, 500)
             // console.log(this.finals)
             //===========================================
-            setTimeout(()=>{ this.choiceN = Math.floor((Math.random()*this.objwh2.length)) },600)
-            // setTimeout(()=>{ this.choiceNs = Math.floor((Math.random()*this.objs.length)) },600)
-            let e = document.getElementById("img1")
-            setTimeout(()=>{ e.src=(`${this.objwh2[this.choiceN].添付URL1}`) },1000)
-            let e1 = document.getElementById("titleW")
-            setTimeout(()=>{ e1.innerText=this.objwh2[this.choiceN].文化財名 },1000)
-            let e2 = document.getElementById("introduceW")
-            setTimeout(()=>{ e2.innerText=this.objwh2[this.choiceN].解説文 },1000)
+            this.any = Math.floor((Math.random()*2))
+            console.log(this.any)
+            if (this.any == 0){
+                setTimeout(()=>{ this.choiceN = Math.floor((Math.random()*this.objwh2.length)) },600)
+                let e = document.getElementById("img1")
+                setTimeout(()=>{ e.src=(`${this.objwh2[this.choiceN].添付URL1}`) },1000)
+                let e1 = document.getElementById("titleW")
+                setTimeout(()=>{ e1.innerText=this.objwh2[this.choiceN].文化財名 },1000)
+                let e2 = document.getElementById("introduceW")
+                setTimeout(()=>{ e2.innerText=this.objwh2[this.choiceN].解説文 },1000)
+            }else if ( this.any == 1 ){
+                setTimeout(()=>{ this.choiceNp = Math.floor((Math.random()*this.finalp.length)) },600)
+                let e = document.getElementById("img1")
+                setTimeout(()=>{ e.src="..." },1000)
+                let e1 = document.getElementById("titleW")
+                setTimeout(()=>{ e1.innerText=this.finalp[this.choiceNp].名称.表記 },1000)
+                let e2 = document.getElementById("introduceW")
+                setTimeout(()=>{ e2.innerText=this.finalp[this.choiceNp].説明[2] },1000)
+            }else if ( this.any == 2){
+                setTimeout(()=>{ this.choiceNs = Math.floor((Math.random()*this.finals.length)) },600)
+                let e = document.getElementById("img1")
+                setTimeout(()=>{ e.src=(`${this.finals[this.choiceNs].img}`) },1000)
+                let e1 = document.getElementById("titleW")
+                setTimeout(()=>{ e1.innerText=this.finals[this.choiceNs].name },1000)
+                let e2 = document.getElementById("introduceW")
+                setTimeout(()=>{ e2.innerText=this.finals[this.choiceNs].introduce },1000)
+            }
         },
         oneC(){
             setTimeout(()=>{ this.choiceN = Math.floor((Math.random()*this.objwh2.length)) },600)
