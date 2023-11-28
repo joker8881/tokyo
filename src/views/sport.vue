@@ -136,7 +136,7 @@ export default {
         this.get()
         this.ck()
         setTimeout(() => {
-            this.dd()
+            // this.dd()
             this.get()
         }, 1000)
         // 這裡是抓取資料的，不需要更動
@@ -276,7 +276,7 @@ export default {
             <p id="howtogo">電車交通</p>
             <p id="introduce">介紹</p>
             <div class="picture">
-                <div id="img" class="imgs" style="width: 500px; height: 200px;">
+                <div id="img" class="imgs" >
                 </div>
             </div>
         </div>
@@ -285,10 +285,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-img {
-    width: 500px;
-    height: 300px;
-}
+
 
 path {
     stroke: #000000;
@@ -332,9 +329,11 @@ svg {
             padding: 15px;
 
             select {
-
                 height: 30px;
                 text-align: center;
+                border-radius: 15px;
+                color: white;
+                background-color:salmon ;
             }
         }
 
@@ -379,13 +378,6 @@ svg {
             width: 50vw;
             font-size: 16pt;
             color: black;
-
-
-            &:active {
-                color: white;
-                transition: 1s;
-            }
-
             &:hover {
                 background: linear-gradient(to top, #40e0d0, #ff8c00, #ff0080);
                 background: -webkit-linear-gradient(to top, #40e0d0, #ff8c00, #ff0080);
