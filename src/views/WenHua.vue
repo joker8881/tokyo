@@ -128,8 +128,8 @@ export default {
           {
             name: "文化財",
             type: "pie",
-            radius: ["40%", "70%"],
-            center: ["50%", "50%"],
+            // radius: ["40%", "70%"],
+            // center: ["50%", "50%"],
             data: [
               { value: this.obj3.length, name: "千代田区" },
               { value: this.obj4.length, name: "中央区" },
@@ -208,7 +208,7 @@ document.addEventListener("mousemove", function (e) {
   <!-- darkmode按鈕 -->
   <div :class="{ 'dark-mode': isDarkMode }">
     <div>
-      <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage"/>
+      <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage "/>
     </div>
 
     <!-- 顯示點擊區域名稱 -->
@@ -620,7 +620,7 @@ document.addEventListener("mousemove", function (e) {
             @click="toggleDarkMode"
             class=""
             :class="{ 'dark-mode': isDarkMode }"
-            style="margin-top: 10px"
+            style="margin-top: 10px; background-color: #c2834b"
           >
             天黑請閉眼
           </button>
@@ -634,6 +634,7 @@ document.addEventListener("mousemove", function (e) {
               height: 38px;
               border-radius: 0.375rem;
               font-size: 24px;
+              background-color: #c2834b
             "
           >
             目標地區：{{ this.x }}
@@ -720,7 +721,7 @@ path {
   cursor: pointer;
   &:hover {
     // fill: var(--color-gold);
-    fill: rgb(247, 228, 125);
+    fill: rgb(238, 142, 33);
     transform: translate(-5px, -5px);
   }
 }

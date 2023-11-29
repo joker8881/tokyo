@@ -6,14 +6,14 @@ export default {
 
 data() {
     return {
-        obj: [],
-        serch:[],
-        final:[],
+        obj: [], //放objc[0]
+        serch:[], 
+        final:[], //公園的陣列
         c:"",
         selected:"",
-        test:"",
-        sjd:0,
-        vf:0,
+        test:"", 
+        sjd:0, //final長度的亂數
+        vf:0, //v-if用法
         bgColor: this.getRandomTransparentColor(),
         imagePath: "03.png"
     }
@@ -47,7 +47,7 @@ methods:{
     setTimeout(()=>{ console.log(this.final) },500)
     setTimeout(()=>{ this.mod() },700)
     
-    
+    console.log(this.final)
 },
     mod(){
         let a = document.getElementById("nameP")
@@ -102,18 +102,18 @@ methods:{
     this.setupMouseTracking();
     this.setWhite(6)
   },
-  beforeDestroy() {
-    this.removeMouseTracking();
-  },
+  // beforeDestroy() {
+  //   this.removeMouseTracking();
+  // },
 }
 
-var img=document.querySelector("img")
-        document.addEventListener("mousemove",function(e){
-            var x=e.pageX
-            var y=e.pageY
-            img.style.top=y-50+"px"
-            img.style.left=x-50+"px"
-        })
+// var img=document.querySelector("img")
+//         document.addEventListener("mousemove",function(e){
+//             var x=e.pageX
+//             var y=e.pageY
+//             img.style.top=y-50+"px"
+//             img.style.left=x-50+"px"
+//         })
 </script>
 
 <template>
@@ -222,8 +222,8 @@ path {
 
     &:hover {
         // fill: var(--color-gold);
-        fill: rgb(247, 228, 125);
-        transform: translate(-10px, -10px);
+        fill: rgb(238, 142, 33);
+        transform: translate(-5px, -5px);
     }
 }
 
@@ -272,12 +272,12 @@ path {
   padding: 20px; 
 }
 
-h1.blinking-text {
-  animation: blink 4s infinite;
-}
-
 h1.text-shadow {
   text-shadow: 2px 2px 4px #000000;
+}
+
+h1.blinking-text {
+  animation: blink 4s infinite;
 }
 
 @keyframes blink {

@@ -296,7 +296,7 @@ path {
     cursor: pointer;
 
     &:hover {
-        fill: rgb(247, 228, 125);
+        fill: rgb(238, 142, 33);
         transform: translate(-5px, -5px);
     }
 }

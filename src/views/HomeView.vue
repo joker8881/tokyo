@@ -331,9 +331,9 @@ svg{
             font-size: 2em;
             // color: #ffffff;
             line-height: 2em;
-            background-image:linear-gradient(to right, rgb(255, 190, 69), rgb(146, 16, 135));
-            color:transparent;
-            background-clip:text;
+            
+            color: #ffffff;
+            // background-clip:text;
         }
         .title2{
             margin: 0;
