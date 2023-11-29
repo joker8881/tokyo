@@ -166,6 +166,7 @@ export default {
     },
     setupMouseTracking() {
       const img = this.$refs.mouseImage;
+
       this.handleMouseMove = (e) => {
         var x = e.pageX;
         var y = e.pageY;
@@ -191,9 +192,9 @@ export default {
     this.setWhite(5);
     // 這裡是抓取資料的，不需要更動
   },
-  beforeDestroy() {
-    this.removeMouseTracking();
-  },
+  // beforeDestroy() {
+  //   this.removeMouseTracking();
+  // },
 };
 var img = document.querySelector("img");
 document.addEventListener("mousemove", function (e) {
@@ -208,7 +209,7 @@ document.addEventListener("mousemove", function (e) {
   <!-- darkmode按鈕 -->
   <div :class="{ 'dark-mode': isDarkMode }">
     <div>
-      <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage "/>
+      <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage"/>
     </div>
 
     <!-- 顯示點擊區域名稱 -->

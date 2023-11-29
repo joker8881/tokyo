@@ -12,7 +12,8 @@ export default{
             //全23區
             //如果要加多筆資料，記得多加新的空陣列讓資料可以放進來。
             c:"",
-            imgC:""
+            imgC:"",
+            imagePath: "2.png",
         }
     },
     computed:{
@@ -86,13 +87,28 @@ export default{
             console.log(this.final)
             this.weatherInfo()
             setTimeout(()=>{ this.weatherInfo() },500)
-        }
+        },
+        setupMouseTracking() {
+      const img = this.$refs.mouseImage;
+
+      this.handleMouseMove = (e) => {
+        var x = e.pageX;
+        var y = e.pageY;
+        img.style.top = y + 10 + "px";
+        img.style.left = x + 10 + "px";
+      };
+      window.addEventListener("mousemove", this.handleMouseMove);
+    },
+    removeMouseTracking() {
+      window.removeEventListener("mousemove", this.handleMouseMove);
+    },
     },
         mounted(){
             this.get()
             this.ck()
             setTimeout(()=>{ this.get() },2000)
             this.setWhite(2)
+            this.setupMouseTracking()
         // 這裡是抓取資料的，不需要更動
     }
 }
@@ -175,6 +191,9 @@ export default{
             </div>
             <p class="wind" id="wind">風速</p>
             <p class="wet" id="wet">濕度</p>
+            <div>
+                <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage"/>
+            </div>
         </div>
         </div>
     </div>
@@ -314,5 +333,11 @@ svg{
             line-height: 2em;
         }
     }
+}
+.mouse-image {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  //   z-index: 1;
 }
 </style>
