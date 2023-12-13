@@ -132,7 +132,7 @@ export default{
             }else if ( this.any == 1 ){
                 setTimeout(()=>{ this.choiceNp = Math.floor((Math.random()*this.finalp.length)) },600)
                 let e = document.getElementById("img1")
-                setTimeout(()=>{ e.src="..." },1000)
+                setTimeout(()=>{ e.src="" },1000)
                 let e1 = document.getElementById("titleW")
                 setTimeout(()=>{ e1.innerText=this.finalp[this.choiceNp].名称.表記 },1000)
                 let e2 = document.getElementById("introduceW")
@@ -160,7 +160,7 @@ export default{
             console.log(Math.floor((Math.random()*this.finalp.length)))
             setTimeout(()=>{ this.choiceNp = Math.floor((Math.random()*this.finalp.length)) },600)
             let e = document.getElementById("img1")
-            setTimeout(()=>{ e.src="..." },1000)
+            setTimeout(()=>{ e.src="" },1000)
             let e1 = document.getElementById("titleW")
             setTimeout(()=>{ e1.innerText=this.finalp[this.choiceNp].名称.表記 },1000)
             let e2 = document.getElementById("introduceW")
@@ -268,7 +268,7 @@ export default{
                 <li><a class="dropdown-item" href="#" @click="threeC()">體育設施</a></li>
             </ul>
             <div class="card">
-                <img src="" class="card-img-top img-fluid" style="max-height: 430px; background-size: cover;" alt="..." id="img1">
+                <img src="" class="card-img-top img-fluid" style="max-height: 430px; background-size: cover;" alt="" id="img1">
                 <div class="card-body" style="height: 200px;">
                     <p class="card-text titleW" id="titleW">名稱</p>
                     <p class="card-text introduceW" id="introduceW" style="height: 80%;overflow: scroll;">介紹</p>
