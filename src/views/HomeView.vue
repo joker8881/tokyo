@@ -252,7 +252,7 @@ export default{
                 <li><a class="dropdown-item" href="#" @click="threeC()">體育設施</a></li>
             </ul>
             <div class="card">
-                <img src="..." class="card-img-top img-fluid" style="max-height: 430px; background-size: cover;" alt="..." id="img1">
+                <img src="" class="card-img-top img-fluid" style="max-height: 430px; background-size: cover;" alt="..." id="img1">
                 <div class="card-body" style="height: 200px;">
                     <p class="card-text titleW" id="titleW">名稱</p>
                     <p class="card-text introduceW" id="introduceW" style="height: 80%;overflow: scroll;">介紹</p>

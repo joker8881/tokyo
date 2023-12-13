@@ -115,21 +115,21 @@ export default {
         },
         tooltip: { //提示框
           trigger: "item",
-          formatter: "{a} <br/>{b} : {c} ({d}%)",
+          formatter: "{a} <br/>{b} : {c} ({d}%)", // {a}：系列名。{b}：数据名。{c}：数据值。{d}：百分比。
         },
         legend: { //圖例
           data: ["千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区","品川区","目黒区","大田区","世田谷区","渋谷区","中野区","杉並区","豊島区","北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区",],
-          left:"center",                              
-          top:"bottom",                              
+          left:"center",
+          top:"bottom",
           orient:"horizontal",
           color: "#fff;"
         },
-        series: [
+        series: [ //數據
           {
             name: "文化財",
             type: "pie",
-            radius: ["40%", "70%"],
-            center: ["50%", "50%"],
+            // radius: ["40%", "70%"],
+            // center: ["50%", "50%"],
             data: [
               { value: this.obj3.length, name: "千代田区" },
               { value: this.obj4.length, name: "中央区" },
@@ -208,7 +208,7 @@ document.addEventListener("mousemove", function (e) {
   <!-- darkmode按鈕 -->
   <div :class="{ 'dark-mode': isDarkMode }">
     <div>
-      <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage"/>
+      <img :src="imagePath" alt="Mouse Image" class="mouse-image" ref="mouseImage" style="z-index: 1;"/>
     </div>
 
     <!-- 顯示點擊區域名稱 -->
