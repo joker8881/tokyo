@@ -166,6 +166,7 @@ export default {
     },
     setupMouseTracking() {
       const img = this.$refs.mouseImage;
+
       this.handleMouseMove = (e) => {
         var x = e.pageX;
         var y = e.pageY;
@@ -191,9 +192,9 @@ export default {
     this.setWhite(5);
     // 這裡是抓取資料的，不需要更動
   },
-  beforeDestroy() {
-    this.removeMouseTracking();
-  },
+  // beforeDestroy() {
+  //   this.removeMouseTracking();
+  // },
 };
 var img = document.querySelector("img");
 document.addEventListener("mousemove", function (e) {
@@ -620,7 +621,7 @@ document.addEventListener("mousemove", function (e) {
             @click="toggleDarkMode"
             class=""
             :class="{ 'dark-mode': isDarkMode }"
-            style="margin-top: 10px"
+            style="margin-top: 10px; background-color: #c2834b"
           >
             天黑請閉眼
           </button>
@@ -634,6 +635,7 @@ document.addEventListener("mousemove", function (e) {
               height: 38px;
               border-radius: 0.375rem;
               font-size: 24px;
+              background-color: #c2834b
             "
           >
             目標地區：{{ this.x }}
@@ -720,7 +722,7 @@ path {
   cursor: pointer;
   &:hover {
     // fill: var(--color-gold);
-    fill: rgb(247, 228, 125);
+    fill: rgb(238, 142, 33);
     transform: translate(-5px, -5px);
   }
 }
