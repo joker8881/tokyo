@@ -63,7 +63,7 @@ export default {
         this.obj2 = this.obj.filter((item) => {
           return item.所在区市町村 == this.x;
         });
-      }, 500);
+      }, 2000);
       setTimeout(() => {
         let areaName = [ "千代田区","中央区","港区","新宿区","文京区","台東区","墨田区","江東区","品川区","目黒区","大田区","世田谷区","渋谷区","中野区","杉並区","豊島区","北区","荒川区","板橋区","練馬区","足立区","葛飾区","江戸川区",];
 
@@ -89,7 +89,7 @@ export default {
         this.obj22 = this.obj.filter((item) => { return item.所在区市町村 == areaName[19];});
         this.obj23 = this.obj.filter((item) => { return item.所在区市町村 == areaName[20];});
         this.obj24 = this.obj.filter((item) => { return item.所在区市町村 == areaName[21];});
-        this.obj25 = this.obj.filter((item) => { return item.所在区市町村 == areaName[22];});}, 600);
+        this.obj25 = this.obj.filter((item) => { return item.所在区市町村 == areaName[22];});}, 3000);
     },
     clickC() {
       this.click = 1;
@@ -187,7 +187,7 @@ export default {
       this.$nextTick(() => {
         this.drawPieChart();
       });
-    }, 2000);
+    }, 4000);
     this.setupMouseTracking();
     this.setWhite(5);
     // 這裡是抓取資料的，不需要更動
