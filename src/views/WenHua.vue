@@ -49,7 +49,7 @@ export default {
       // 這裡記得要改成你要抓的那筆資料
       this.getWenhua();
       this.obj = this.objb;
-      //console.log(this.obj);
+      console.log(this.obj);
     },
     toggleDarkMode() {
       this.isDarkMode = !this.isDarkMode; // 切換 isDarkMode 的值
